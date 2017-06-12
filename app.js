@@ -27,3 +27,19 @@ var firstNndPike = {
     }
   },
 };
+firstNndPike.calcRandCustomersPerHour();
+firstNndPike.calctotalCookiesSoldPerHour();
+
+function firstNndPikeResults() {
+  for (var k = 0; k < hours.length; k++) {
+    var totalCookiesSoldPerHour = document.getElementById('firstNndPike');
+    var firstNndPikeLi = document.createElement('li');
+    firstNndPikeLi.textContent = hours[k] + ': ' + firstNndPike.totalCookiesSoldPerHour[k] + ' cookies';
+    console.log(totalCookiesSoldPerHour);
+    totalCookiesSoldPerHour.appendChild(firstNndPikeLi);
+  };
+  firstNndPikeLi.textContent = 'Total Cookies Sold Today: ' + firstNndPike.totalDailyCookiesSold;
+  totalCookiesSoldPerHour.appendChild(firstNndPikeLi);
+}
+firstNndPikeResults();
+console.log(firstNndPike);
