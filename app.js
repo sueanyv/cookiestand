@@ -19,6 +19,43 @@ function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationNam
 
     }
   };
+  this.calctotalCookiesSoldPerHour = function() {
+      this.calcRandCustomersPerHour();
+      for (var i = 0; i < hours.length; i++) {
+        this.totalCookiesSoldPerHour.push(Math.ceil(this.randCustomersPerHour[i] * this.avgCookiesPerCust));
+
+        this.totalDailyCookiesSold += this.totalCookiesSoldPerHour[i];
+      }
+    };
+
+    this.render = function() {
+      this.calctotalCookiesSoldPerHour();
+
+      var rowElement = document.createElement('tr');
+
+      var dataCell = document.createElement('th');
+      dataCell.textContent = this.locationName;
+      rowElement.appendChild(dataCell);
+
+      for (var i = 0; i < hours.length; i++) {
+            dataCell = document.createElement('td');
+            dataCell.textContent = this.totalCookiesSoldPerHour[i];
+            rowElement.appendChild(dataCell);
+
+
+
+
+          }
+          var dataCell = document.createElement('th');
+          dataCell.textContent = this.totalDailyCookiesSold;
+          rowElement.appendChild(dataCell);
+          salesDataTable.appendChild(rowElement);
+        };
+
+        allLocations.push(this);
+
+      };
+
 
 
 
