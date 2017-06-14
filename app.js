@@ -133,3 +133,27 @@ function handleCommentSubmit(event) {
     alert('you  fudge up, Please complete  all sections form! ');
     return;
   }
+
+
+  var sameNameFound = false;
+  for (var i = 0; i < allLocations.length; ++i) {
+    if (locName === allLocations[i].locationName) {
+      sameNameFound = true;
+      allLocations[i].maxCustPerHour = maxCust;
+      allLocations[i].minCustPerHour = minCust;
+      allLocations[i].maxCustPerHour = maxCust;
+      allLocations[i].avgCookiesPerCust = avgCookie;
+      break;
+    }
+  }
+  if (sameNameFound === false) {
+    new Location(minCust, maxCust, avgCookie, locName);
+
+  }
+  var clearTable = document.getElementById('locationjs');
+  clearTable.innerHTML = '';
+
+
+  makeHeaderRow();
+
+  
