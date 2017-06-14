@@ -56,6 +56,11 @@ function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationNam
 
       };
 
+      new Location(23, 65, 6.3, '1st and Pike');
+      new Location(3, 24, 1.2, 'SeaTac Airport');
+      new Location(11, 38, 3.7, 'Seattle Center');
+      new Location(20, 38, 2.3, 'Capitol Hill');
+      new Location(2, 16, 4.6, 'Alki');
 
 
 
