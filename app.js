@@ -24,7 +24,6 @@ function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationNam
     this.calcRandCustomersPerHour();
     for (var i = 0; i < hours.length; i++) {
       this.totalCookiesSoldPerHour.push(Math.ceil(this.randCustomersPerHour[i] * this.avgCookiesPerCust));
-
       this.totalDailyCookiesSold += this.totalCookiesSoldPerHour[i];
     }
   };
@@ -91,14 +90,12 @@ new Location(2, 16, 4.6, 'Alki');
 makeHeaderRow();
 
 for (var i = 0; i < allLocations.length; ++i) {
-
   allLocations[i].render();
 
 }
 
 function makeFooterRow() {
   var rowElement = document.createElement('tr');
-
   var headerCell = document.createElement('th'); // far left cells
   headerCell.textContent = 'Hourly Totals';
   rowElement.appendChild(headerCell);
@@ -121,3 +118,12 @@ function makeFooterRow() {
   salesDataTable.appendChild(rowElement);
 };
 makeFooterRow();
+
+function handleCommentSubmit(event) {
+
+  event.preventDefault(); //gotta have it for this purpose. prevents page reload on a 'submit' event
+
+  var minCust = event.target.MinCustomerPerHr.value;
+  var maxCust = event.target.MaxCustomerPerHr.value;
+  var avgCookie = event.target.AverageCookie.value;
+  var locName = event.target.locName.value;
