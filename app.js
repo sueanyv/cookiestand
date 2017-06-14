@@ -156,4 +156,13 @@ function handleCommentSubmit(event) {
 
   makeHeaderRow();
 
-  
+  for (var i = 0; i < allLocations.length; i++) {
+    allLocations[i].render();
+  };
+
+  makeFooterRow();
+
+};
+
+var newStore = document.getElementById('sales-form');
+newStore.addEventListener('submit', handleCommentSubmit);
