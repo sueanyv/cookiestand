@@ -1,10 +1,20 @@
 * {
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
 }
 body{
-  background-color: gray;
+  background: #f4faff;
   height: 100%;
+}
+/*home page style*/
+header{
+
+}
+h1{
+  text-align: center;
+}
+nav{
+
 }
 #salmonpic{
   margin-left: auto;
@@ -12,18 +22,50 @@ body{
   display: block;
   width: 300px;
 }
-#comingsoon{
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 500px;
-}
-h1{
-  text-align: center;
-}
+
+
 aside{
   height:1000px;
   width:280px;
   background-color: yellow;
+}
 
+/*sales page style*/
+
+#group{
+  margin-top: 40px;
+}
+
+#locationjs{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sales-form{
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+th, td {
+  outline: 2px solid gray;
+  padding: 3px;
+}
+
+.number{
+  width:50px;
+}
+
+#loc{
+  width:120px;
+}
+
+fieldset{
+  margin-top: 10px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }

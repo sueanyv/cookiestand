@@ -130,7 +130,7 @@ function handleCommentSubmit(event) {
   console.log(minCust, maxCust, avgCookie, locName);
 
   if (minCust === null || maxCust === null || avgCookie === null || locName === null) {
-    alert('you  fudge up, Please complete  all sections form! ');
+    alert(' Please complete  all sections form! ');
     return;
   }
 
