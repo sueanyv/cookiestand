@@ -69,3 +69,118 @@ fieldset{
   margin-right: auto;
   display: block;
 }
+
+
+
+ul {margin-top: 50px;
+    margin-bottom: 20px;
+    list-style-type: none;
+  padding-left:  430px;
+background-image: url(fish.jpg);
+    overflow: hidden;
+
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: blue;
+    font-size: 30px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.62);
+    margin: 10px;
+     font-family: 'Lobster', cursive;
+
+}
+
+
+
+/*top*/
+
+#toppart {
+    background-color: rgba(154, 215, 240, 0.35);
+    height: 140px;
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+#salmonIcon {
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+
+}
+
+/*middlepart*/
+#middlepart {
+
+  margin-left: auto;
+  margin-right: auto;
+    height: 300px;
+     width: 1300px;
+}
+
+
+#chinook1{
+    width: 250px;
+    float: left;
+     padding-left: 80px;
+    padding-top: 270px
+}
+#cookiesabt{
+  font-size: 25px;
+   font-family: 'Lobster', cursive;
+    text-align: center;
+    width: 500px;
+  margin-left: auto;
+    margin-right: auto;
+}
+
+
+#chinook2{
+    width: 250px;
+    float: right;
+    padding-right: 80px;
+
+}
+
+
+/*bottom*/
+
+#bottompart {
+    border: solid blue;
+    height: 150px;
+   margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+
+
+}
+#frostedCookie {
+float:left;
+  width:150px;
+    padding-right: 0;
+    padding-top: 30px;
+  display: block;
+padding-left:180px;
+}
+
+
+#cutter {
+  width: 120px;
+  display: block;
+  float: right;
+    padding-right: 180px;
+    padding-top: 10px;
+}
