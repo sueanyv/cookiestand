@@ -119,9 +119,7 @@ makeFooterRow();
 
 
 function handleCommentSubmit(event) {
-
   event.preventDefault(); //gotta have it for this purpose. prevents page reload on a 'submit' event
-
   var minCust = event.target.MinCustomerPerHr.value;
   var maxCust = event.target.MaxCustomerPerHr.value;
   var avgCookie = event.target.AverageCookie.value;
@@ -130,7 +128,9 @@ function handleCommentSubmit(event) {
 
   if (minCust === null || maxCust === null || avgCookie === null || locName === null) {
     alert('you  fudge up, Please complete  all sections form! ');
-    return;
+    // event.preventDefault();
+
+
   }
 
 
@@ -147,20 +147,16 @@ function handleCommentSubmit(event) {
   }
   if (sameNameFound === false) {
     new Store(minCust, maxCust, avgCookie, locName);
-
   }
   var clearTable = document.getElementById('locationjs');
   clearTable.innerHTML = '';
 
-
   makeHeaderRow();
-
   for (var j = 0; j < allStores.length; j++) {
-    allStores[j].render();
+    allStores[j].
+    render();
   };
-
   makeFooterRow();
-
 };
 
 var newStore = document.getElementById('salesform');
