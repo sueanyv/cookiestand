@@ -1,9 +1,9 @@
 'use strict';
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var allLocations = [];
+var allStores = [];
 var salesDataTable = document.getElementById('locationjs');
 //First and Pike
-function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationName) {
+function Store(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationName) {
 
   this.minCustPerHour = minCustPerHour;
   this.maxCustPerHour = maxCustPerHour;
@@ -13,6 +13,7 @@ function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationNam
   this.totalDailyCookiesSold = 0;
   this.locationName = locationName;
   this.calcRandCustomersPerHour = function() {
+    this.randCustomersPerHour = [];
     for (var i = 0; i < hours.length; i++) {
       this.randCustomersPerHour.push(Math.ceil(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
 
@@ -21,9 +22,13 @@ function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationNam
 
 
   this.calctotalCookiesSoldPerHour = function() {
+    this.totalCookiesSoldPerHour = [];
+    this.totalDailyCookiesSold = 0;
+
     this.calcRandCustomersPerHour();
     for (var i = 0; i < hours.length; i++) {
       this.totalCookiesSoldPerHour.push(Math.ceil(this.randCustomersPerHour[i] * this.avgCookiesPerCust));
+
       this.totalDailyCookiesSold += this.totalCookiesSoldPerHour[i];
     }
   };
@@ -37,33 +42,27 @@ function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationNam
     dataCell.textContent = this.locationName;
     rowElement.appendChild(dataCell);
 
-
-
     for (var i = 0; i < hours.length; i++) {
       dataCell = document.createElement('td');
       dataCell.textContent = this.totalCookiesSoldPerHour[i];
       rowElement.appendChild(dataCell);
-
-
-
-
     }
-    var dataCell = document.createElement('th');
+
+    dataCell = document.createElement('th');
     dataCell.textContent = this.totalDailyCookiesSold;
     rowElement.appendChild(dataCell);
     salesDataTable.appendChild(rowElement);
   };
 
-  allLocations.push(this);
+  allStores.push(this);
 
 };
-
 
 function makeHeaderRow() {
   var rowElement = document.createElement('tr');
 
   var headerCell = document.createElement('th');
-  headerCell.textContent = 'Locations';
+  headerCell.textContent = 'Stores';
   rowElement.appendChild(headerCell);
 
   for (var i = 0; i < hours.length; i++) {
@@ -72,52 +71,52 @@ function makeHeaderRow() {
     rowElement.appendChild(headerCell);
   }
 
-
-  var headerCell = document.createElement('th');
-  headerCell.textContent = 'Location Total';
+  headerCell = document.createElement('th');
+  headerCell.textContent = 'Store Total';
   rowElement.appendChild(headerCell);
 
   salesDataTable.appendChild(rowElement);
 
 };
 
-new Location(23, 65, 6.3, '1st and Pike');
-new Location(3, 24, 1.2, 'SeaTac Airport');
-new Location(11, 38, 3.7, 'Seattle Center');
-new Location(20, 38, 2.3, 'Capitol Hill');
-new Location(2, 16, 4.6, 'Alki');
+new Store(23, 65, 6.3, '1st and Pike');
+new Store(3, 24, 1.2, 'SeaTac Airport');
+new Store(11, 38, 3.7, 'Seattle Center');
+new Store(20, 38, 2.3, 'Capitol Hill');
+new Store(2, 16, 4.6, 'Alki');
 
 makeHeaderRow();
 
-for (var i = 0; i < allLocations.length; ++i) {
-  allLocations[i].render();
-
+for (var i = 0; i < allStores.length; ++i) {
+  allStores[i].render();
 }
 
 function makeFooterRow() {
   var rowElement = document.createElement('tr');
+
   var headerCell = document.createElement('th'); // far left cells
   headerCell.textContent = 'Hourly Totals';
   rowElement.appendChild(headerCell);
 
-  var dailyTotalAllLocations = 0;
+  var dailyTotalAllStores = 0;
   for (var i = 0; i < hours.length; i++) {
     var total = 0;
-    for (var j = 0; j < allLocations.length; j++) {
-      total += allLocations[j].totalCookiesSoldPerHour[i];
+    for (var j = 0; j < allStores.length; j++) {
+      total += allStores[j].totalCookiesSoldPerHour[i];
     }
     headerCell = document.createElement('th');
     headerCell.textContent = total;
     rowElement.appendChild(headerCell);
-    dailyTotalAllLocations += total;
+    dailyTotalAllStores += total;
   }
   headerCell = document.createElement('th'); //far right cells
-  headerCell.textContent = dailyTotalAllLocations;
+  headerCell.textContent = dailyTotalAllStores;
   rowElement.appendChild(headerCell);
 
   salesDataTable.appendChild(rowElement);
 };
 makeFooterRow();
+
 
 function handleCommentSubmit(event) {
 
@@ -130,24 +129,24 @@ function handleCommentSubmit(event) {
   console.log(minCust, maxCust, avgCookie, locName);
 
   if (minCust === null || maxCust === null || avgCookie === null || locName === null) {
-    alert(' Please complete  all sections form! ');
+    alert('you  fudge up, Please complete  all sections form! ');
     return;
   }
 
 
   var sameNameFound = false;
-  for (var i = 0; i < allLocations.length; ++i) {
-    if (locName === allLocations[i].locationName) {
+  for (var i = 0; i < allStores.length; ++i) {
+    if (locName === allStores[i].locationName) {
       sameNameFound = true;
-      allLocations[i].maxCustPerHour = maxCust;
-      allLocations[i].minCustPerHour = minCust;
-      allLocations[i].maxCustPerHour = maxCust;
-      allLocations[i].avgCookiesPerCust = avgCookie;
+      allStores[i].maxCustPerHour = maxCust;
+      allStores[i].minCustPerHour = minCust;
+      allStores[i].maxCustPerHour = maxCust;
+      allStores[i].avgCookiesPerCust = avgCookie;
       break;
     }
   }
   if (sameNameFound === false) {
-    new Location(minCust, maxCust, avgCookie, locName);
+    new Store(minCust, maxCust, avgCookie, locName);
 
   }
   var clearTable = document.getElementById('locationjs');
@@ -156,13 +155,13 @@ function handleCommentSubmit(event) {
 
   makeHeaderRow();
 
-  for (var i = 0; i < allLocations.length; i++) {
-    allLocations[i].render();
+  for (var j = 0; j < allStores.length; j++) {
+    allStores[j].render();
   };
 
   makeFooterRow();
 
 };
 
-var newStore = document.getElementById('sales-form');
+var newStore = document.getElementById('salesform');
 newStore.addEventListener('submit', handleCommentSubmit);

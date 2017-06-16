@@ -1,38 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title></title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+  </head>
 
-<body>
-  <section id="group">
-    <section id="tableSec">
-      <h1>Sales</h1>
-      <table id="locationjs"></table>
-    </section>
+  <body>
+    <h1>Sales</h1>
+    <table id="locationjs"></table>
+
     <fieldset>
-      <form id="sales-form">
+      <form id="salesform">
         <legend>Sales Form</legend>
         <label for='MinCustomerPerHr'>Min Customers per Hr: </label>
-        <input name='MinCustomerPerHr' type="number" size="5" class="number" />
+        <input name='MinCustomerPerHr' type="text" size="5" />
 
-        <label for='MaxCustomerPerHr'>Max Customer Per Hr: </label>
-        <input name='MaxCustomerPerHr' type="number" size="5"class="number" />
+         <label for='MaxCustomerPerHr'>Max Customer Per Hr: </label>
+         <input name='MaxCustomerPerHr' type="number" size="5" />
 
-        <label for='AverageCookie'>Average Cookie </label>
-        <input name='AverageCookie' type="number" size="5"class="number" />
+         <label for='AverageCookie'>Average Cookie </label>
+         <input name='AverageCookie' type="number" size="5" />
 
-        <label for='locName'>Location Name: </label>
-        <input name='locName' type="text" size="5" id="loc" />
+         <label for='locName'>Location Name: </label>
+         <input name='locName' type="text" size="5" />
 
-        <button type="submit">Submit!</button>
-      </form>
-    </fieldset>
-  </section>
-  <script src="app.js"></script>
-</body>
+         <button type="submit">Submit!</button>
+       </form>
+     </fieldset>
+    <script src="app.js"></script>
+  </body>
 
 </html>
