@@ -1,0 +1,20 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+#salmonpic{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 300px;
+}
+#comingsoon{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 500px;
+}
+h1{
+  text-align: center;
+}
