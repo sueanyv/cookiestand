@@ -1,9 +1,9 @@
 'use strict';
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var allLocations = [];
+var allStores = [];
 var salesDataTable = document.getElementById('locationjs');
 //First and Pike
-function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationName) {
+function Store(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationName) {
 
   this.minCustPerHour = minCustPerHour;
   this.maxCustPerHour = maxCustPerHour;
@@ -48,13 +48,13 @@ function Location(minCustPerHour, maxCustPerHour, avgCookiesPerCust, locationNam
 
 
     }
-    var dataCell = document.createElement('th');
+    dataCell = document.createElement('th');
     dataCell.textContent = this.totalDailyCookiesSold;
     rowElement.appendChild(dataCell);
     salesDataTable.appendChild(rowElement);
   };
 
-  allLocations.push(this);
+  allStores.push(this);
 
 };
 
@@ -63,7 +63,7 @@ function makeHeaderRow() {
   var rowElement = document.createElement('tr');
 
   var headerCell = document.createElement('th');
-  headerCell.textContent = 'Locations';
+  headerCell.textContent = 'Stores';
   rowElement.appendChild(headerCell);
 
   for (var i = 0; i < hours.length; i++) {
@@ -73,24 +73,24 @@ function makeHeaderRow() {
   }
 
 
-  var headerCell = document.createElement('th');
-  headerCell.textContent = 'Location Total';
+  headerCell = document.createElement('th');
+  headerCell.textContent = 'Store Total';
   rowElement.appendChild(headerCell);
 
   salesDataTable.appendChild(rowElement);
 
 };
 
-new Location(23, 65, 6.3, '1st and Pike');
-new Location(3, 24, 1.2, 'SeaTac Airport');
-new Location(11, 38, 3.7, 'Seattle Center');
-new Location(20, 38, 2.3, 'Capitol Hill');
-new Location(2, 16, 4.6, 'Alki');
+new Store(23, 65, 6.3, '1st and Pike');
+new Store(3, 24, 1.2, 'SeaTac Airport');
+new Store(11, 38, 3.7, 'Seattle Center');
+new Store(20, 38, 2.3, 'Capitol Hill');
+new Store(2, 16, 4.6, 'Alki');
 
 makeHeaderRow();
 
-for (var i = 0; i < allLocations.length; ++i) {
-  allLocations[i].render();
+for (var i = 0; i < allStores.length; ++i) {
+  allStores[i].render();
 
 }
 
@@ -100,19 +100,19 @@ function makeFooterRow() {
   headerCell.textContent = 'Hourly Totals';
   rowElement.appendChild(headerCell);
 
-  var dailyTotalAllLocations = 0;
+  var dailyTotalAllStores = 0;
   for (var i = 0; i < hours.length; i++) {
     var total = 0;
-    for (var j = 0; j < allLocations.length; j++) {
-      total += allLocations[j].totalCookiesSoldPerHour[i];
+    for (var j = 0; j < allStores.length; j++) {
+      total += allStores[j].totalCookiesSoldPerHour[i];
     }
     headerCell = document.createElement('th');
     headerCell.textContent = total;
+    dailyTotalAllStores += total;
     rowElement.appendChild(headerCell);
-    dailyTotalAllLocations += total;
   }
   headerCell = document.createElement('th'); //far right cells
-  headerCell.textContent = dailyTotalAllLocations;
+  headerCell.textContent = dailyTotalAllStores;
   rowElement.appendChild(headerCell);
 
   salesDataTable.appendChild(rowElement);
@@ -136,18 +136,18 @@ function handleCommentSubmit(event) {
 
 
   var sameNameFound = false;
-  for (var i = 0; i < allLocations.length; ++i) {
-    if (locName === allLocations[i].locationName) {
+  for (var i = 0; i < allStores.length; ++i) {
+    if (locName === allStores[i].locationName) {
       sameNameFound = true;
-      allLocations[i].maxCustPerHour = maxCust;
-      allLocations[i].minCustPerHour = minCust;
-      allLocations[i].maxCustPerHour = maxCust;
-      allLocations[i].avgCookiesPerCust = avgCookie;
+      allStores[i].maxCustPerHour = maxCust;
+      allStores[i].minCustPerHour = minCust;
+      allStores[i].maxCustPerHour = maxCust;
+      allStores[i].avgCookiesPerCust = avgCookie;
       break;
     }
   }
   if (sameNameFound === false) {
-    new Location(minCust, maxCust, avgCookie, locName);
+    new Store(minCust, maxCust, avgCookie, locName);
 
   }
   var clearTable = document.getElementById('locationjs');
@@ -156,8 +156,8 @@ function handleCommentSubmit(event) {
 
   makeHeaderRow();
 
-  for (var i = 0; i < allLocations.length; i++) {
-    allLocations[i].render();
+  for (var h = 0; h < allStores.length; h++) {
+    allStores[h].render();
   };
 
   makeFooterRow();
