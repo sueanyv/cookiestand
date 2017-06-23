@@ -72,9 +72,7 @@ fieldset{
   margin-left: auto;
   margin-right: auto;
   height: 600px;
-  width: 1300px;
-  background-color: yellow;
-
+  width: 100%;
 }
 #family{
   width:600px;
@@ -95,38 +93,47 @@ fieldset{
 /*Midlle Part*/
 
 #middlepart{
-  background-color: purple;
+  border: 4px solid blue;
   height: 400px;
   width: 100%;
   padding-top: 60px;
-
+  margin-bottom: 300px;
 }
 #left{
-  background-color: orange;
   float: left;
   width: 50%;
-
 }
 #frostedCookie {
-
   margin-left: 40px;
   width:250px;
-
 }
-
-
 #cutter {
   width: 220px;
-
+}
+#right{
+  float: right;
+  width: 50%;
+}
+#shirt{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 /*bottom*/
 
-#bottompart {
-  border: solid blue;
+#footer {
   height: 150px;
+  background-color: white;
+
+}
+#chinook{
   margin-left: auto;
   margin-right: auto;
-  width: 800px;
-  padding-bottom: 30px;
+  display: block;
+  width:200px;
+  margin-bottom: 10px;
+}
+h4{
+  text-align: center;
 
 }

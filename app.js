@@ -124,7 +124,7 @@ function handleCommentSubmit(event) {
   var maxCust = event.target.MaxCustomerPerHr.value;
   var avgCookie = event.target.AverageCookie.value;
   var locName = event.target.locName.value;
-  console.log(minCust, maxCust, avgCookie, locName);
+
 
   if (minCust === null || maxCust === null || avgCookie === null || locName === null) {
     alert('you  fudge up, Please complete  all sections form! ');
